@@ -1,0 +1,59 @@
+page-register {
+
+  .fixed-content{
+    background-image: url('http://creativeoutsourcesolutions.com/appimages/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+  }
+
+  .forms{
+    margin-top: 40%;
+  }
+
+  ion-item-group .group{
+    background: #1C283E;
+  }
+
+  p{
+    color: white;
+  }
+
+  ion-item button{
+    border-radius: 300px;
+
+  }
+
+  .rad{
+    border-radius: 25px;
+    border-bottom: 2px solid dodgerblue;
+    border-top: 2px solid dodgerblue;
+  }
+
+  ion-icon{
+    margin-right: 10px;
+    color: dodgerblue;
+  }
+
+  .b{
+    margin-right: 20px;
+  }
+
+
+  .item.item-input {
+      background-color: transparent;
+  }
+
+  ion-input{
+      color: white;
+    }
+
+    .pa{
+      margin-left: 10px;
+    }
+
+    a{
+      color: dodgerblue;
+    }
+
+}

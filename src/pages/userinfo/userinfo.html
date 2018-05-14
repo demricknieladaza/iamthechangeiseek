@@ -1,0 +1,54 @@
+<!--
+  Generated template for the UserinfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>Userinfo</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content padding class="scroll-content" style=" background-image: url('http://creativeoutsourcesolutions.com/appimages/bg.jpg'); background-repeat: no-repeat;
+background-size: cover; ">
+	<p style="margin-top: 40%; color: white; font-size: 25px; font-family: 'Bevan', cursive; font: bold;">Fill this up to continue!</p>
+	<form [formGroup]="form" (ngSubmit)="updateUser()" class="forms" >
+		<ion-item-group>
+		  <ion-item class="rad" style="border-radius: 25px;">
+		  <ion-label><ion-icon name="contact" style="color: dodgerblue;"></ion-icon></ion-label>
+	      <ion-input type="text" formControlName="fname" [(ngModel)]="fname" placeholder="First Name"></ion-input>
+	      </ion-item>
+	    </ion-item-group><br>
+
+	    <ion-item-group>
+		  <ion-item style="border-radius: 25px;">
+		  <ion-label><ion-icon name="contact" style="color: dodgerblue;"></ion-icon></ion-label>
+	      <ion-input type="text" formControlName="lname" [(ngModel)]="lname" placeholder="Last Name"></ion-input>
+	      </ion-item>
+	    </ion-item-group><br>
+
+	    <ion-item-group>
+	      <ion-item style="border-radius: 25px;">
+		  <ion-label>Gender</ion-label>
+		      <ion-select formControlName="gender" [(ngModel)]="gender">
+		        <ion-option value="Male">Male</ion-option>
+		        <ion-option value="Female">Female</ion-option>
+		      </ion-select>
+		   </ion-item>
+		 </ion-item-group><br><br>
+
+
+            <button style="border-radius: 25px;"
+            ion-button
+            color="primary"
+            text-center
+            block
+            [disabled]="!form.valid">Submit</button>
+
+
+		</form>
+</ion-content>

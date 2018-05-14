@@ -1,0 +1,30 @@
+page-comments {
+
+}
+ion-buttons button[icon-only].my-style-for-modal {
+   margin: 0 6px;
+   min-width: 36px;
+}
+.uname:first-letter {
+  text-transform: capitalize;
+}
+
+// #tabpanel-t0-0 > page-comments > ion-header{
+//   color: #9FC2F1;
+// }
+.toolbar-background {
+  background: linear-gradient(to left, #004FF9 , #D3CCE3, #E9E4F0, gold );
+}
+
+.bar-button-default-ios, .bar-button-default.bar-button-ios-default  {
+  color: white;
+}
+
+.toolbar-title-ios{
+  color: #fff;
+}
+
+#tabpanel-t0-0 > page-comments > ion-content > div.scroll-content > ion-card > ion-card-header > ion-item:nth-child(2) > div.item-inner > div > ion-label{
+  border: 1px solid dodgerblue;
+  border-radius: 25px;
+}

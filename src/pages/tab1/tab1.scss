@@ -1,0 +1,60 @@
+page-tab1 {
+.card-background-page {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+  .line{
+    list-style: none;
+    padding-left:0;
+  }
+  .line li{
+    display: inline;
+    padding: 0 25px;
+  }
+}
+
+
+// .space {
+//   margin-left: 2%;
+//     margin-right: 15%;
+// }
+.toolbar-background {
+  background-color: #02ABEE;
+}
+
+.bar-button-default-ios, .bar-button-default.bar-button-ios-default  {
+  color: white;
+}
+.toolbar-title-ios{
+    color: white;
+}
+
+.tabbar show-tabbar{
+   background-color: #02ABEE;
+}
+.tabbar .show-tabbar{
+  background-color: black;
+}
+}

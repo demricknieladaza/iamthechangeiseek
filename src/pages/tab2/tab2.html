@@ -1,0 +1,45 @@
+
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-buttons >
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center style="padding-bottom: 5px;">I Am The Change I Seek</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="card-background-page">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- <h1 text-center>Quote of the Day</h1> -->
+  <ion-card *ngFor="let img of image;">
+    <img src="{{imgurl}}{{ img.image }}" />
+    <ul class="line">
+      <div >
+        <div>
+          <ion-grid>
+          <ion-row>
+            <ion-col>
+              <li *ngIf="mylikes.indexOf(img.id) !== -1;else other_content" (click)="ulike()" class="space" style="color: blue;"><ion-icon name="thumbs-up">Like</ion-icon></li>
+              <ng-template #other_content><li class="space" (click)="like(img.id)"> <ion-icon name="thumbs-up">Like</ion-icon></li></ng-template>
+            </ion-col>
+            <ion-col>
+              <li (click)="comment(img)" class="commm"> <ion-icon name="chatbubbles">Comment</ion-icon></li>
+            </ion-col>
+            <!-- <ion-col>
+              <li><ion-icon name="share-alt">Share</ion-icon></li>
+            </ion-col> -->
+          </ion-row>
+        </ion-grid>
+        </div>
+      </div>
+    </ul>
+  </ion-card>
+
+</ion-content>
