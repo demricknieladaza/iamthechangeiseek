@@ -86,3 +86,16 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+@font-face {
+ font-family: 'In_blossom_vintage';
+ src:url('../assets/fonts/In_blossom_vintage.ttf') format('truetype');
+ font-weight: normal;
+ font-style: normal;
+}
+$font-family-base: "In_blossom_vintage";
+$font-family-ios-base: $font-family-base;
+$font-family-md-base: $font-family-base;
+$font-family-wp-base: $font-family-base;
+
+$toolbar-background: transparent;

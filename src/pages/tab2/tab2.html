@@ -1,12 +1,12 @@
 
 <ion-header>
-  <ion-navbar hideBackButton>
-    <ion-buttons >
+  <ion-navbar >
+    <!-- <ion-buttons >
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-    </ion-buttons>
-    <ion-title text-center style="padding-bottom: 5px;">I Am The Change I Seek</ion-title>
+    </ion-buttons> -->
+    <ion-title text-center style="padding-bottom: 5px;word-wrap: break-word;font-size: 1;font-family: 'in_blossom_vintage';-webkit-text-stroke-width: 0.1px;-webkit-text-stroke-color: #f8f8f8;">I Am The Change I Seek. A Self Realization Primer</ion-title>
 
   </ion-navbar>
 
@@ -17,6 +17,24 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
+  <!-- <div style=" display: flex;height: 50px;">
+       <ion-list padding-horizontal padding-top style="overflow-y: scroll;max-height: 90%;">
+         <a href="https://www.facebook.com/IAmTheChangeISeekK/"><button ><ion-icon name="logo-facebook"></ion-icon></button></a>
+         <a href="https://www.pinterest.com/sweetprairie/"><button ><ion-icon name="logo-pinterest"></ion-icon></button></a>
+         <a href="http://iamthechangeiseek.org"><button ><ion-icon name="globe"></ion-icon></button></a>
+       </ion-list>
+   </div> -->
+   <ion-fab bottom right >
+     <button ion-fab><ion-icon name="share"></ion-icon></button>
+     <ion-fab-list side="top">
+       <a href="https://www.facebook.com/IAmTheChangeISeekK/"><button ion-fab ><ion-icon name="logo-facebook"></ion-icon></button></a>
+       <a href="https://www.pinterest.com/sweetprairie/"><button ion-fab ><ion-icon name="logo-pinterest"></ion-icon></button></a>
+       <a href="http://iamthechangeiseek.org"><button ion-fab ><ion-icon name="globe"></ion-icon></button></a>
+     </ion-fab-list>
+     <!-- <ion-fab-list side="left">
+       <button ion-fab>Vimeo</button>
+     </ion-fab-list> -->
+   </ion-fab>
   <!-- <h1 text-center>Quote of the Day</h1> -->
   <ion-card *ngFor="let img of image;">
     <img src="{{imgurl}}{{ img.image }}" />
@@ -26,11 +44,11 @@
           <ion-grid>
           <ion-row>
             <ion-col>
-              <li *ngIf="mylikes.indexOf(img.id) !== -1;else other_content" (click)="ulike()" class="space" style="color: blue;"><ion-icon name="thumbs-up">Like</ion-icon></li>
-              <ng-template #other_content><li class="space" (click)="like(img.id)"> <ion-icon name="thumbs-up">Like</ion-icon></li></ng-template>
+              <li *ngIf="mylikes.indexOf(img.id) !== -1;else other_content" (click)="ulike()" class="space" style="color: #FFA500;"><ion-icon name="thumbs-up"></ion-icon> Liked</li>
+              <ng-template #other_content><li class="space" (click)="like(img.id)"> <ion-icon name="thumbs-up"></ion-icon></li></ng-template>
             </ion-col>
             <ion-col>
-              <li (click)="comment(img)" class="commm"> <ion-icon name="chatbubbles">Comment</ion-icon></li>
+              <li (click)="comment(img)" class="commm"> <ion-icon name="chatbubbles"></ion-icon></li>
             </ion-col>
             <!-- <ion-col>
               <li><ion-icon name="share-alt">Share</ion-icon></li>

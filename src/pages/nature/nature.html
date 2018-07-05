@@ -1,0 +1,51 @@
+
+<ion-header>
+  <ion-navbar hideBackButton>
+  	<ion-buttons >
+  		<button ion-button menuToggle>
+  			<ion-icon name="menu"></ion-icon>
+  		</button>
+  	</ion-buttons>
+    <ion-title text-center style="padding-bottom: 5px;word-wrap: break-word;font-size: 1;">I Am The Change I Seek. A Self Realization Primer</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="card-background-page">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- <div style=" display: flex;height: 50px;">
+       <ion-list padding-horizontal padding-top style="overflow-y: scroll;max-height: 90%;">
+         <a href="https://www.facebook.com/IAmTheChangeISeekK/"><button ><ion-icon name="logo-facebook"></ion-icon></button></a>
+         <a href="https://www.pinterest.com/sweetprairie/"><button ><ion-icon name="logo-pinterest"></ion-icon></button></a>
+         <a href="http://iamthechangeiseek.org"><button ><ion-icon name="globe"></ion-icon></button></a>
+       </ion-list>
+   </div> -->
+   <ion-fab bottom right >
+     <button ion-fab><ion-icon name="share"></ion-icon></button>
+     <ion-fab-list side="top">
+       <a href="https://www.facebook.com/IAmTheChangeISeekK/"><button ion-fab ><ion-icon name="logo-facebook"></ion-icon></button></a>
+       <a href="https://www.pinterest.com/sweetprairie/"><button ion-fab ><ion-icon name="logo-pinterest"></ion-icon></button></a>
+       <a href="http://iamthechangeiseek.org"><button ion-fab ><ion-icon name="globe"></ion-icon></button></a>
+     </ion-fab-list>
+     <!-- <ion-fab-list side="left">
+       <button ion-fab>Vimeo</button>
+     </ion-fab-list> -->
+   </ion-fab>
+  <!-- <h1 text-center style="font-family: 'Titan One', cursive;">Word of the Day</h1> -->
+  <ion-card style="width:84%;">
+    <!-- <ion-card-header style="font-size:1.8em;">
+      Idea exchange bulletin
+    </ion-card-header>
+    <ion-card-content style="font-size:1.8em;">
+      
+    </ion-card-content> -->
+    <video #videoPlayer class="video-player" controls></video>
+  </ion-card>
+  
+
+</ion-content>
+

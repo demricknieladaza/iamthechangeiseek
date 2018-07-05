@@ -38,7 +38,7 @@ export class LoginPage {
           this.navCtrl.setRoot('UserinfoPage');
         }
         else{
-          this.navCtrl.setRoot('AdminPage');
+          this.navCtrl.setRoot('UserPage');
         }
         }
         else{
@@ -91,7 +91,7 @@ export class LoginPage {
                   email : data[0]['email']
                 };
                 this.dataService.saveUData(userinf);
-                this.navCtrl.setRoot('AdminPage');
+                this.navCtrl.setRoot('UserPage');
                 }
                 if(data[0]['acc_type']==1){
                   let userinf = {
@@ -103,7 +103,7 @@ export class LoginPage {
                   email : data[0]['email']
                 };
                 this.dataService.saveUData(userinf);
-                this.navCtrl.setRoot('AdminPage');
+                this.navCtrl.setRoot('UserPage');
                 }
                 
               }

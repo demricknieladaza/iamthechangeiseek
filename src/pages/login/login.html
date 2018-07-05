@@ -18,14 +18,14 @@
 		<form [formGroup]="form" (ngSubmit)="logUser()" class="forms">
 		<h5 style="font-family: 'Lobster', cursive; color: white;"> Welcome Back </h5>
 		<ion-item-group class="group">
-		  <ion-item class="rad">
+		  <ion-item class="rad" style="border:none;" >
 		  <ion-label><ion-icon class="b" name="contact"></ion-icon></ion-label>
 	      <ion-input type="text" formControlName="uname" [(ngModel)]="uname" placeholder="Username" ></ion-input>
 	      </ion-item>
 	    </ion-item-group><br>
 
 	    <ion-item-group>
-	      <ion-item class="rad">
+	      <ion-item class="rad" style="border:none;" >
 	      <ion-label><ion-icon ios="ios-key" md="md-key"></ion-icon></ion-label>
 	      <ion-input class="pa" type="Password" formControlName="password" [(ngModel)]="password" placeholder="Password"></ion-input>
 	  	  </ion-item>

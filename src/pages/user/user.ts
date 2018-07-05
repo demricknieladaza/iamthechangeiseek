@@ -7,6 +7,9 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { Observable } from 'rxjs/Observable';
 
+import { NativeAudio } from '@ionic-native/native-audio';
+import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions } from '@ionic-native/streaming-media';
+
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -25,11 +28,20 @@ import 'rxjs/add/operator/map';
 })
 export class UserPage {
     public userinfo = [];
+    public lastwod = [];
+    public lastqod = [];
+    public quotes = [];
+    public initials:any;
+    public imgsrc = "http://creativeoutsourcesolutions.com/appAdmin/uploads/wod/";
+    public imgsrcq = "http://creativeoutsourcesolutions.com/appAdmin/uploads/qod/";
     public form : FormGroup;
     public hideForm : boolean = false;
     private baseURI  : string  = "http://creativeoutsourcesolutions.com/myapphandler/";
     public base64Image:string;
     public imageFileName:any;
+    is_playing: boolean = false;
+    is_in_play: boolean = false;
+    is_ready: boolean = true;
   constructor(
     public dataService: Data,
     private camera: Camera,
@@ -39,11 +51,13 @@ export class UserPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public fb : FormBuilder,
-    public appCtrl : App)
+    public appCtrl : App,
+    private streamingMedia: StreamingMedia)
   {
     this.dataService.getUData().then((UserData) => {
       if(UserData){
         this.userinfo = JSON.parse(UserData);
+        this.initials = this.userinfo['fname'].charAt(0);
       }
       else{
 
@@ -55,6 +69,9 @@ export class UserPage {
        "lname"                  : ["", Validators.required],
        "email"                  : ["", Validators.required]
     });
+    this.getlastwod();
+    this.getlastqod();
+    this.getlastquote();
   }
   updateUser(){
     let uname   : string = this.form.controls["uname"].value,
@@ -149,4 +166,103 @@ export class UserPage {
      // })
      this.sendNotification('This action is not yet available!');
    }
+   logout(){
+    this.dataService.clearData();
+    this.navCtrl.setRoot('LoginPage');
+  }
+
+   getlastquote() {
+     this.http.get("http://creativeoutsourcesolutions.com/myapphandler/retrieve-data.php?key=getquote")
+       .map(res => res.json())
+       .subscribe(data => 
+       {
+         if(data){
+           console.log(data);
+           this.quotes = data;
+         }
+         
+       });
+   }
+
+   getlastwod() {
+     this.http.get("http://creativeoutsourcesolutions.com/myapphandler/retrieve-data.php?key=getlastimage")
+       .map(res => res.json())
+       .subscribe(data => 
+       {
+         if(data){
+           console.log(data['image']);
+           this.lastwod = data;
+         }
+         
+       });
+   }
+
+   getlastqod() {
+     this.http.get("http://creativeoutsourcesolutions.com/myapphandler/retrieve-data.php?key=getlastimageq")
+       .map(res => res.json())
+       .subscribe(data => 
+       {
+         if(data){
+           console.log(data['image']);
+           this.lastqod = data;
+         }
+         
+       });
+   }
+
+   openwod() {
+     // this.navCtrl.push('CommentsPage',{ info:this.lastwod, type:'w' });
+     this.navCtrl.push('Tab1Page');
+   }
+
+   openqod() {
+     // this.navCtrl.push('CommentsPage',{ info:this.lastqod, type:'q' });
+     this.navCtrl.push('Tab2Page');
+   }
+
+   opennature () {
+     this.navCtrl.setRoot('MusicPage');
+   }
+
+   startAudio() {
+    let options: StreamingAudioOptions = {
+      successCallback: () => { console.log('Finished Audio') },
+      errorCallback: (e) => { console.log('Error: ', e) },
+      initFullscreen: false // iOS only!
+    };
+ 
+    //http://soundbible.com/2196-Baby-Music-Box.html
+    this.streamingMedia.playAudio('http://www.orangefreesounds.com/wp-content/uploads/2017/04/Singing-bowls-and-birds-chirping-sleep-music.mp3', options);
+    this.is_ready = true;
+    this.is_playing = true;
+  }
+  stopAudio() {
+    this.streamingMedia.stopAudio();
+    this.is_playing = false;
+  }
+  natures() {
+    this.navCtrl.setRoot('NaturePage');
+  }
+  startVideo() {
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Finished Video') },
+      errorCallback: (e) => { console.log('Error: ', e) },
+      orientation: 'portrait'
+    };
+ 
+    // http://www.sample-videos.com/
+    this.streamingMedia.playVideo('http://creativeoutsourcesolutions.com/appimages/videos/nature.mp4', options);
+  }
+
+  startVideoq() {
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Finished Video') },
+      errorCallback: (e) => { console.log('Error: ', e) },
+      orientation: 'portrait'
+    };
+ 
+    // http://www.sample-videos.com/
+    this.streamingMedia.playVideo('http://creativeoutsourcesolutions.com/appimages/videos/intro.mp4', options);
+  }
+
  }

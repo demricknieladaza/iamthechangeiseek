@@ -1,11 +1,18 @@
 page-login {
 
 .fixed-content{
-  background-image: url('http://creativeoutsourcesolutions.com/appimages/bg.jpg');
-  background-repeat: no-repeat;
+  // background-image: url('http://creativeoutsourcesolutions.com/appimages/bg.jpg');
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  background: url('https://images.pexels.com/photos/439284/pexels-photo-439284.jpeg?auto=compress&cs=tinysrgb&h=650&w=940') no-repeat;
   background-size: cover;
   // background-color: #1C283E;
   // text-align: center;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
 }
 
 .forms{

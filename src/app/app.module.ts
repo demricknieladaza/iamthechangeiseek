@@ -12,6 +12,7 @@ import { Data } from '../providers/data/data';
 import { Media, MediaObject } from '@ionic-native/media';
 import { File } from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions } from '@ionic-native/streaming-media';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
     FileTransferObject,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Data,
-    NativeAudio
+    NativeAudio,
+    StreamingMedia
   ]
 })
 export class AppModule {}

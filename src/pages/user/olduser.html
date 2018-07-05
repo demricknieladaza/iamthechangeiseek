@@ -1,0 +1,80 @@
+
+<ion-header>
+
+</ion-header>
+
+
+<ion-content>
+<!-- <ion-icon name="settings" style="color:white; float: right; "></ion-icon> -->
+
+  <ion-card-content>
+  	<ion-card style="margin-top: 50px;background-color: #F8820F;">
+
+  	  <ion-card-header>
+        <ion-avatar item-start>
+          <img src="https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg"  class="profileimage" style="border-radius: 50%; width: 100px; height: 100px; margin-bottom: 6%;">
+        </ion-avatar>
+
+
+  	  </ion-card-header>
+      <ion-card-content >
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <a (click)="takephoto()">Take Photo</a>
+            </ion-col>
+            <ion-col>
+              <a  (click)="opengallery()" >Open Gallery</a>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <button ion-button (click)="uploadimg()" >UPLOAD</button>
+      </ion-card-content>
+  	</ion-card>
+
+
+	  	<ion-card style="background-color: #F8820F;">
+
+	  	  <ion-card-content >
+     		<form [formGroup]="form" (ngSubmit)="updateUser()" class="forms">
+     		<!-- <h5 style="font-family: 'Lobster', cursive; color: white;"> Welcome Back </h5> -->
+     		<ion-item-group>
+     		  <ion-item >
+     	      <ion-label fixed>UserName</ion-label>
+     	      <ion-input type="text" formControlName="uname" value="{{ userinfo.uname }}"></ion-input>
+     	      </ion-item>
+     	    </ion-item-group>
+     		<ion-item-group>
+     		  <ion-item >
+     	      <ion-label fixed>First Name</ion-label>
+     	      <ion-input type="text" formControlName="fname" value="{{ userinfo.fname }}"></ion-input>
+     	      </ion-item>
+     	    </ion-item-group>
+     	    <ion-item-group>
+     		  <ion-item >
+     	      <ion-label fixed>Last Name</ion-label>
+     	      <ion-input type="text" formControlName="lname" value="{{ userinfo.lname }}"></ion-input>
+     	      </ion-item>
+     	    </ion-item-group>
+     	    <ion-item-group>
+     		  <ion-item >
+     	      <ion-label fixed>Email</ion-label>
+     	      <ion-input type="text" formControlName="email" value="{{ userinfo.email }}"></ion-input>
+     	      </ion-item>
+     	    </ion-item-group>
+
+
+             <button class="rad"
+             ion-button
+             color="primary"
+             text-center
+             block
+             [disabled]="!form.valid">Save</button>
+
+
+     		</form>
+	  	  </ion-card-content>
+
+	  	</ion-card>
+
+	  </ion-card-content>

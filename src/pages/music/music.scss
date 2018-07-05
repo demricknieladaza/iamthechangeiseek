@@ -1,63 +1,37 @@
 .ios, .md {
  
     page-music {
- 
-        $song-card-height: 90px;
- 
-        ion-list {
- 
-            margin-bottom: $song-card-height + 20px;
- 
-            .alternate {
-                background-color: map-get($colors, secondary);
-            }
- 
-            .playing {
- 
-                background-color: map-get($colors, dark);
- 
-                img {
-                    opacity: 0.4;
-                }
-            }
+        .avatar {
+            display: block;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-image: url('http://creativeoutsourcesolutions.com/appimages/bg.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+
+            margin: 0 auto;
+            border: 2px solid #f1f1f1;
+            box-shadow: 0 0 5px #999;
         }
- 
-        ion-avatar {
-            position: relative;
+
+        .play-pause-btn {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            box-shadow: 0 0 10px #999;
+            font-size: 2.3em;
+            border-radius: 50%;
         }
- 
-        ion-spinner {
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin: 4px !important;        
-        }
- 
-        [ion-item] {
-            background-color: map-get($colors, primary);
-            padding: 20px;
-        }
- 
-        ion-card {
-            background-color: map-get($colors, light);
-            opacity: 0.9;
-            height: $song-card-height;
-            bottom: 0;
-        }
- 
-        ion-footer {
-            height: 75px;
-            background-color: map-get($colors, dark);
- 
-            ion-grid, ion-row, ion-col {
-                height: 100%;
-            }
- 
-            ion-col {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+
+        .skip-btn {
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 0 10px #999;
         }
  
     }

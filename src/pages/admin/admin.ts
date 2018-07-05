@@ -36,6 +36,7 @@ export class AdminPage {
         this.navCtrl.setRoot('LoginPage');
       }
     });
+    // this.navCtrl.setRoot('UserPage');
   }
 
   openPage(page: PageInterface){

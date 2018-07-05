@@ -9,17 +9,17 @@
 </ion-header> -->
 
 
-<ion-content style="background: linear-gradient(to top, #004FF9 , #D3CCE3, #E9E4F0, gold );">
+<ion-content style="background: linear-gradient(to left, #FFA500, #FFA500, #FFA500, #FFA500);font-family: 'in_blossom_vintage';font-size: 2.2em;">
 <ion-list><br><br>
-	<button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)" class="side" detail-none>
+	<button style="font-size: 1em;" ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)" class="side" detail-none>
 		<ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
-		{{ p.title }}
+		<span style="">{{ p.title }}</span>
 	</button>
 	<!-- <button ion-item (click)="userprofile()" ><ion-icon name="settings" style="margin:0 15px;"></ion-icon>UserProfile</button> -->
-	<button ion-item (click)="showConfirm()" class="side" detail-none>Logout</button>
+	<button style="font-size: 1em;" ion-item menuClose (click)="showConfirm()" class="side" detail-none><ion-icon item-start name="log-out"></ion-icon>Logout</button>
 </ion-list>
 </ion-content>
 
 </ion-menu>
 
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>

@@ -4,77 +4,97 @@
 </ion-header>
 
 
-<ion-content style="background: linear-gradient(to top, #004FF9 , #D3CCE3, #E9E4F0, gold );">
-<!-- <ion-icon name="settings" style="color:white; float: right; "></ion-icon> -->
-
-  <ion-card-content>
-  	<ion-card style="margin-top: 50px;">
-
-  	  <ion-card-header>
-        <ion-avatar item-start>
-          <img src="https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg"  class="profileimage" style="border-radius: 50%; width: 100px; height: 100px; margin-bottom: 6%;">
-        </ion-avatar>
-
-
-  	  </ion-card-header>
-      <ion-card-content >
+<ion-content id="cont">
+  <ion-fab bottom right >
+    <button ion-fab><ion-icon name="share"></ion-icon></button>
+    <ion-fab-list side="top">
+      <a href="https://www.facebook.com/IAmTheChangeISeekK/"><button ion-fab ><ion-icon name="logo-facebook"></ion-icon></button></a>
+      <a href="https://www.pinterest.com/sweetprairie/"><button ion-fab ><ion-icon name="logo-pinterest"></ion-icon></button></a>
+      <a href="http://iamthechangeiseek.org"><button ion-fab ><ion-icon name="globe"></ion-icon></button></a>
+    </ion-fab-list>
+    <!-- <ion-fab-list side="left">
+      <button ion-fab>Vimeo</button>
+    </ion-fab-list> -->
+  </ion-fab>
+  <div class="ucont">
+    <!-- <ion-avatar pull-left item-start>
+      <img src="https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg"  class="profileimage bord" style="border-radius: 50%; width: 120px; height: 120px; margin-bottom: 6%; margin-top: -20px;
+margin-left: -20px;">
+    </ion-avatar> -->
+    <div id="profileImage" class="profileimage bord" style="border-radius: 50%; width: 100px; height: 100px; margin-bottom: 6%; margin-top: -20px;
+margin-left: -20px;">{{initials| titlecase}}</div>
+  </div>
+  <div class="panelcont">
+    <div class="row">
+      <ion-item-group style="width:90%;" >
+        <ion-item class="ilist" ><p class="uint" style="color: #000;font-size: 1.3em;-webkit-text-stroke-width: 0.1px;
+-webkit-text-stroke-color: #f8f8f8;" >Good day {{ userinfo.fname }}</p></ion-item>
+        <ion-item class="ilist" style="display: none;" ><p class="uint" style="color: #000;font-size: 1.3em;-webkit-text-stroke-width: 0.1px;
+-webkit-text-stroke-color: #f8f8f8;" >Check for new word and quote for today</p></ion-item>
+      </ion-item-group>
+    </div>
+    <div class="row" style="margin-top:20px;">
+        <h1 style="color:orange;padding: 0 15px;-webkit-text-stroke-width: 0.2px;
+-webkit-text-stroke-color: orange;" >I am the Change I Seek</h1>
+      </div>
+      <div class="row" style="width: 90%;" >
         <ion-grid>
-          <ion-row>
-            <ion-col>
-              <a (click)="takephoto()">Take Photo</a>
+          <ion-row text-center>
+            <ion-col col-md-4>
+              <img (click)="openwod()" src="{{imgsrc}}{{ lastwod['image'] }}" style="width: 100px; height: 100px; margin-bottom: 6%;border: 3px solid orange;">
+              <p class="utit" style="-webkit-text-stroke-width: 0.2px;-webkit-text-stroke-color: orange;" >Word of the day</p>
             </ion-col>
-            <ion-col>
-              <a  (click)="opengallery()" >Open Gallery</a>
+            <ion-col col-md-4>
+              <img (click)="openqod()" src="{{imgsrcq}}{{ lastqod['image'] }}" style="width: 100px; height: 100px; margin-bottom: 6%;border: 3px solid orange;">
+              <p class="utit" style="-webkit-text-stroke-width: 0.2px;-webkit-text-stroke-color: orange;" >Quote of the day</p>
+            </ion-col>
+            <ion-col col-md-4>
+              <img (click)="startVideo()" src="http://creativeoutsourcesolutions.com/appimages/nature.jpg" style="width: 100px; height: 100px; margin-bottom: 6%;border: 3px solid orange;">
+              <p class="utit" style="-webkit-text-stroke-width: 0.2px;-webkit-text-stroke-color: orange;" >Nature Series</p>
             </ion-col>
           </ion-row>
         </ion-grid>
-        <button ion-button (click)="uploadimg()" >UPLOAD</button>
-      </ion-card-content>
-  	</ion-card>
+      </div>
+      <div class="row">
+        <ion-card style="width:84%;opacity:0.6;">
+          <ion-card-content style="font-size:1.8em;text-align:center;">
+            {{quotes['quote']}}
+          </ion-card-content>
+        </ion-card>
+      </div>
+  </div>
+  <div class="panelcont" style="margin-top: 20px;">
+    <div class="row" style="width: 90%;" text-center >
+      <ion-grid>
+        <ion-row>
+          <ion-col col-md-6>
+            <img (click)="startAudio()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtnkRLdFYOHuBr5bEjHzLxuUUfGShOlx2h5RB1Elfo7NVmNX_3" style="width: 100px; height: 100px; margin-bottom: 6%;border: 3px solid orange;">
+            <p class="utit" style="-webkit-text-stroke-width: 0.2px;-webkit-text-stroke-color: orange;" >Music</p>
+          </ion-col>
+          <ion-col col-md-6>
+            <img (click)="startVideoq()" src="data:image/jpeg;base64,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" style="width: 100px; height: 100px; margin-bottom: 6%;border: 3px solid orange;">
+            <p class="utit" style="-webkit-text-stroke-width: 0.2px;-webkit-text-stroke-color: orange;" >Video</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="row">
+      <ion-card style="width:84%;opacity:0.6;">
+        <ion-card-header style="font-size:1.8em;">
+          Idea exchange bulletin
+        </ion-card-header>
+        <ion-card-content style="font-size:1.8em;">
+          
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  <ion-row>
+  <ion-col text-center style="color:orange;">
+    Copyright 2017 I am the Change I Seek 
+  <a (click)="logout()" style="color:black;">  Logout</a>
+  </ion-col>
+</ion-row>
 
+</ion-content>
 
-	  	<ion-card >
-
-	  	  <ion-card-content >
-     		<form [formGroup]="form" (ngSubmit)="updateUser()" class="forms">
-     		<h5 style="font-family: 'Lobster', cursive; color: white;"> Welcome Back </h5>
-     		<ion-item-group>
-     		  <ion-item >
-     	      <ion-label fixed>UserName</ion-label>
-     	      <ion-input type="text" formControlName="uname" value="{{ userinfo.uname }}"></ion-input>
-     	      </ion-item>
-     	    </ion-item-group>
-     		<ion-item-group>
-     		  <ion-item >
-     	      <ion-label fixed>First Name</ion-label>
-     	      <ion-input type="text" formControlName="fname" value="{{ userinfo.fname }}"></ion-input>
-     	      </ion-item>
-     	    </ion-item-group>
-     	    <ion-item-group>
-     		  <ion-item >
-     	      <ion-label fixed>Last Name</ion-label>
-     	      <ion-input type="text" formControlName="lname" value="{{ userinfo.lname }}"></ion-input>
-     	      </ion-item>
-     	    </ion-item-group>
-     	    <ion-item-group>
-     		  <ion-item >
-     	      <ion-label fixed>Email</ion-label>
-     	      <ion-input type="text" formControlName="email" value="{{ userinfo.email }}"></ion-input>
-     	      </ion-item>
-     	    </ion-item-group>
-
-
-             <button class="rad"
-             ion-button
-             color="primary"
-             text-center
-             block
-             [disabled]="!form.valid">Save</button>
-
-
-     		</form>
-	  	  </ion-card-content>
-
-	  	</ion-card>
-
-	  </ion-card-content>
